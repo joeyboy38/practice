@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Joey Jarina Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f7fa;
+  }
+
+  /* NAV */
+  nav {
+    background: #111;
+    padding: 15px;
+    text-align: center;
+  }
+  nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+  }
+  nav a:hover { color: magenta; }
+
+  /* SECTIONS */
+  section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  /* PROFILE */
+  .profile {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .profile-text {
+    flex: 1;
+  }
+
+  .name { font-size: 22px; font-weight: bold; margin-bottom: 4px}
+  .role { color: gray; margin-bottom: 6px}
+
+  .profile-description {
+  text-align: justify;
+  line-height: 1.8;      /* Adds a bit of "breathing room" between lines */
+  margin-top: 20px;
+  color: #333;           /* Standard dark gray for professional text */
+}
+
+  /* EMAIL & SOCIAL */
+  .social-icons {
+    margin-top: 5px;
+  }
+
+  .email-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+    color: #0088cc; /* Slightly darker skyblue for better readability */
+    font-weight: bold;
+  }
+
+  .copy-btn { 
+    cursor: pointer; 
+    border: 1px solid #ddd; 
+    background: #fdfdfd; 
+    padding: 3px 8px; 
+    border-radius: 4px; 
+    font-size: 11px;
+    transition: all 0.2s;
+  }
+  .copy-btn:hover { background: #eee; }
+
+  .icon-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .fa {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+
+  .fa:hover { transform: scale(1.1); opacity: 0.9; }
+  .fa-linkedin { background: #0077b5; }
+  .fa-facebook { background: #1877f2; }
+  .fa-instagram { background: #e1306c; }
+  .fa-youtube-play { background: #bb0000; }
+
+  /* NAVIGATION BUTTON */
+  .nav-btn {
+    background: magenta;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 13px;
+  }
+
+  /* CONTENT TEXT */
+  p { line-height: 1.6; }
+
+  /* TOOLS GRID */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+  .tools-grid div {
+    background: #f0f0f0;
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+  }
+
+  /* PROJECTS */
+  .projects { max-width: 700px; margin: auto; }
+  .projects ul { padding-left: 20px; }
+  .projects li { margin-bottom: 10px; }
+
+  /* AWARDS & CERTS */
+  .awards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+  }
+  .award-item {
+    text-align: center;
+  }
+  .award-item img {
+    width: 100%;
+    max-width: 120px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .award-item p {
+    font-size: 13px;
+    margin-top: 8px;
+    font-weight: bold;
+  }
+
+  .award-item a img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.award-item a img:hover {
+  transform: scale(1.05); /* Slight zoom in */
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* Deeper shadow */
+}
+
+/* Base style for the certificates */
+.hover-cert {
+  width: 100%;
+  max-width: 120px;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #ddd;
+}
+
+/* The Zoom/Hover Effect */
+.hover-cert:hover {
+  transform: scale(1.1); /* Zooms in by 10% */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Adds a shadow to make it "lift" */
+  border-color: magenta; /* Changes border to match your theme */
+}
+
+/* Removes the default link styling from the certificate images */
+.award-item a {
+  text-decoration: none;
+  display: inline-block; /* Helps the hover effect stay centered */
+}
+
+/* Base style for the certificates */
+.hover-cert {
+  width: 100%;
+  max-width: 120px;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #ddd;
+}
+
+/* The Zoom/Hover Effect */
+.hover-cert:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  border-color: magenta;
+}
+
+  /* MOBILE RESPONSIVENESS */
+  @media (max-width: 768px) {
+    .profile {
+      flex-direction: column;
+      text-align: center;
+    }
+    .email-container {
+      justify-content: center;
+    }
+    .icon-row {
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#tools">Tools</a>
+  <a href="#projects">Projects</a>
+  <a href="#awards">Awards</a>
+  <a href="Joey_Jarina_Resume.pdf" target="_blank" class="nav-btn">Download Resume</a>
+</nav>
+
+<section id="about">
+  <div class="profile">
+    <img src="images/joey.jpeg" alt="Joey Jarina">
+
+    <div class="profile-text">
+      <p class="name">Joey B. Jarina</p>
+      <p class="role">Data Analyst | Power BI Developer | Beginner in Coding</p>
+
+      <div class="social-icons">
+        <div class="email-container">
+          <span id="email-text">joeyscapestudio@gmail.com</span>
+          <button class="copy-btn" id="copy-btn" onclick="copyEmail()">Copy</button>
+        </div>
+
+        <div class="icon-row">
+          <a href="https://www.linkedin.com/in/joeyboyjarina/" target="_blank" class="fa fa-linkedin"></a>
+          <a href="https://www.facebook.com/itsjoeyboy33/" target="_blank" class="fa fa-facebook"></a>
+          <a href="https://www.instagram.com/itsjoeyboy_/" target="_blank" class="fa fa-instagram"></a>
+          <a href="https://www.youtube.com/channel/UCksYgsVegPFK4jbOxYKFUXw" target="_blank" class="fa fa-youtube-play"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-description">
+    I work at Lexmark, now part of Xerox. Focused on transforming raw data into actionable insights through interactive dashboards and optimized data models. While maintaining a strong foundation in the Microsoft BI ecosystem, I am actively expanding my technical toolkit into web development. Currently learning HTML and CSS, with JavaScript next on my roadmap, I am driven by the goal of becoming a versatile programmer capable of building impactful, data-driven applications.
+  </div>
+</section>
+
+<section id="tools">
+  <h2>Tools & Technologies</h2>
+  <div class="tools-grid">
+    <div>Power BI</div>
+    <div>SQL</div>
+    <div>Excel</div>
+    <div>HTML</div>
+    <div>CSS</div>
+    <div>Power Apps</div>
+    <div>Power Automate</div>
+    <div>Graphic Design</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <ul>
+      <li>MPS Asset Report (Power BI Dashboard)</li>
+      <li>Cloud Solutions Center (Power BI Dashboard)</li>
+      <li>Speed Kit Activation (Power BI Dashboard)</li>
+      <li>
+        Portfolio Website: 
+        <a href="https://sites.google.com/view/joeyscape/" target="_blank">Take a Look</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="awards">
+  <h2>Awards & Certificates</h2>
+  <div class="awards">
+    <div class="award-item">
+      <a href="images/power-bi-beginner.pdf" target="_blank">
+      <img src="images/power-bi-beginner.png" alt="Power BI Beginner Certificate">
+    </a>
+      <p>Power BI - Beginner</p>
+    </div>
+
+    <div class="award-item">
+      <a href="images/power-bi-intermediate.pdf" target="_blank">
+      <img src="images/power-bi-intermediate.png" alt="Power BI Intermediate Certificate">
+    </a>
+      <p>Power BI - Intermediate</p>
+    </div>
+
+    <div class="award-item">
+      <a href="images/adobe-illustrator.pdf" target="_blank">
+      <img src="images/adobe-illustrator.png" alt="Adobe Illustrator">
+    </a>
+      <p>Adobe Illustrator</p>
+    </div>
+
+    <div class="award-item">
+      <a href="images/Graphic Design & Video Editing.png" target="_blank">
+      <img src="images/Graphic Design & Video Editing.png" alt="Graphic Design" class="hover-cert">
+    </a>
+      <p>Graphic Design & Video Editing</p>
+    </div>
+
+    <div class="award-item">
+      <a href="images/Manager's Appreciation Award.jpeg" target="_blank">
+      <img src="images/Manager's Appreciation Award.jpeg" alt="Appreciation Award" class="hover-cert">
+    </a>
+      <p>Manager's Appreciation Award</p>
+    </div>
+
+    <div class="award-item">
+      <a href="images/Best in JDI Project.jpeg" target="_blank">
+      <img src="images/Best in JDI Project.jpeg" alt="JDI Project" class="hover-cert">
+    </a>
+      <p>Best in JDI Project</p>
+    </div>
+  </div>
+</section>
+
+<script>
+function copyEmail() {
+  const email = document.getElementById("email-text").innerText;
+  const btn = document.getElementById("copy-btn");
+
+  navigator.clipboard.writeText(email).then(() => {
+    const originalText = btn.innerText;
+    btn.innerText = "Copied!";
+    btn.style.background = "#d4edda"; // Soft green
+    btn.style.borderColor = "#c3e6cb";
+
+    // Revert button after 2 seconds
+    setTimeout(() => {
+      btn.innerText = originalText;
+      btn.style.background = "#fdfdfd";
+      btn.style.borderColor = "#ddd";
+    }, 2000);
+  }).catch(err => {
+    alert("Could not copy text: " + err);
+  });
+}
+</script>
+
+</body>
+</html>
